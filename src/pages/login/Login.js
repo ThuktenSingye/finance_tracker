@@ -3,12 +3,14 @@ import styles from "./Login.module.css"
 // using css module reducec class naming conflict since the class name defined 
 // within the module is scope to that module only
 import { useState } from 'react'
+import useLogin from '../../hooks/useLogin'
 function Login() {
   const [email,setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const {login, error, isPending} = useLogin()
   const handleSubmit = (e)=>{
     e.preventDefault()// prevent default action of page reloading
-    console.log(email, password)
+    login(email, password)
   }
   return (
     // below clasname if class name have hypen
@@ -30,7 +32,9 @@ function Login() {
           value={password}
           />
       </label>
-      <button className='btn'>Login</button>
+      {!isPending && <button className='btn'>Login</button>}
+      {isPending && <button className='btn' disabled>loading</button>}
+      {error && <p>{error}</p>}
     </form>
   )
 }
