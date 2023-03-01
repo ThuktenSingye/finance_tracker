@@ -5,12 +5,12 @@ import useSignup from '../../hooks/useSignup'
 function SignUp() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [name, setName] = useState('')
+  const [displayName, setdisplayName] = useState('')
 
   const {signup, isPending, error} = useSignup()
   const handleSubmit = (e) =>{
     e.preventDefault()
-    signup(email, password, name) 
+    signup(email, password, displayName) 
   }
   return (
     <form className={styles['signup-form']} onSubmit={handleSubmit}> 
@@ -35,8 +35,8 @@ function SignUp() {
         <span>name</span>
         <input 
           type="text"
-          onChange={(e)=>setName(e.target.value)}
-          value={name}
+          onChange={(e)=>setdisplayName(e.target.value)}
+          value={displayName}
           />
       </label>
       {!isPending && <button className='btn'>SignUp</button>}
