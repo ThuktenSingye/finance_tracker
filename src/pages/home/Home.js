@@ -1,10 +1,17 @@
-import style from './Home.module.css'
+import styles from './Home.module.css'
 import React from 'react'
+// components
+import TransactionForm from './TransactionForm'
 
 function Home() {
   return (
-    <div className='home'>
-        <p>Home</p>
+    <div className={styles.container}>
+        <div className={styles.content}>
+          transaction list
+        </div>
+        <div className={styles.sidebar}>
+          <TransactionForm />
+        </div>
     </div>
   )
 }
