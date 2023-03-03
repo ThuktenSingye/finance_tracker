@@ -1,6 +1,7 @@
 import {initializeApp} from 'firebase/app'
 import { getAuth} from 'firebase/auth'
 import {getFirestore} from 'firebase/firestore'
+
 // import firesbase authentication
 const firebaseConfig = {
     apiKey: "AIzaSyAcX1SNj4-06N065nmAnStWu2ZOnn9wyhY",
@@ -15,9 +16,11 @@ const firebaseConfig = {
 // init firebase
 const app = initializeApp(firebaseConfig)
 
+
 // init services
-const projectFirestore = getFirestore(app)
+const projectFirestore = getFirestore()
 // when logning in or signing up, the request is send to firebase where it is evaluated
 // if detial are valid, it create and send json web token and information about user and using web token we can authenticated  
+
 const projectAuth = getAuth(app)
 export {projectFirestore, projectAuth}

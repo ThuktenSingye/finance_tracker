@@ -1,12 +1,18 @@
 import React from 'react'
 import { useState } from 'react'
+import useFirestore from '../../hooks/useFirestore'
 
-function TransactionForm() {
+
+function TransactionForm({uid}) {
     const [name,setName] = useState('')
     const [amount, setAmount] = useState('')
+   
+    const {addDocument}= useFirestore('transactions')
+
     const handleSubmit = (e) =>{
         e.preventDefault()// prevent default reloading of the page
-        console.log({
+        addDocument({
+            uid,
             name, 
             amount
         })
