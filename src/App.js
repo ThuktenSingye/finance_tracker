@@ -13,6 +13,7 @@ function App() {
 
   return (
     <div className="app">
+      {/* react gaurding */}
       {authIsReady && (
         <BrowserRouter>
           <Navbar/>
@@ -24,7 +25,6 @@ function App() {
             <Route path="/login">
               {user && <Redirect to='/'/>}
               {!user && <Login />}
-              
             </Route>
             <Route path="/signup">
               {!user && <SignUp />}

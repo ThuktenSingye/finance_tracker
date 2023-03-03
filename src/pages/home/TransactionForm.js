@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect} from 'react'
 import useFirestore from '../../hooks/useFirestore'
 
 
@@ -7,7 +7,7 @@ function TransactionForm({uid}) {
     const [name,setName] = useState('')
     const [amount, setAmount] = useState('')
    
-    const {addDocument}= useFirestore('transactions')
+    const {addDocument, response}= useFirestore('transactions')
 
     const handleSubmit = (e) =>{
         e.preventDefault()// prevent default reloading of the page
@@ -16,7 +16,18 @@ function TransactionForm({uid}) {
             name, 
             amount
         })
+
     }
+    
+    // now i want to empty form if add transaction is succesfull
+    // for that i first want to check if add document was succces
+    useEffect(()=>{
+        // console.log(response.success)
+        if (response.success){
+            setName('')
+            setAmount('')
+        }
+    }, [response.success])
 
   return (
    <>
