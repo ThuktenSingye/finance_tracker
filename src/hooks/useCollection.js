@@ -1,15 +1,21 @@
 // this hook is to fetch collection from the firebase and display on the UI
 
-import { collection, onSnapshot} from "firebase/firestore"
-import { useState, useEffect }from "react"
+import { collection, onSnapshot,where, query} from "firebase/firestore"
+import { useState, useEffect, useRef }from "react"
 import { projectFirestore } from "../firebase/config"
 
-const useCollection = (data) =>{
+const useCollection = (data, para) =>{
     const [documents, setDocuments] = useState(null)
     const [error, setError] = useState(null)
+    // if we dont use red --> infinite loop in useEffect
+    // para is an array and is different on every function call
+    const q = useRef(para).current
     // whenever collection changes we want to render again and display 
     useEffect(()=>{
         let ref = collection(projectFirestore, data)
+        if (q){
+            ref = query(ref, where(...q))
+        }
 
         const unsub = onSnapshot(ref, (snapshot)=>{
             let results = []
@@ -25,7 +31,11 @@ const useCollection = (data) =>{
 
         // unmount the listener // cleanup function
         return () => unsub()
-    },[data])
+    },[data, q])
+    // the above para is reference type like whenver the component is re rendered 
+    // this para which is array type is created differently than the last array 
+    // so we used useRef hook 
+
 
     return {documents, error}
 
