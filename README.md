@@ -7,11 +7,11 @@
     <p>You can check here: <a href="https://mymoney-f8cf0.web.app">finance-tracker</a></p>
     <p># The above project is clone from online udemy course.</p>
 
-      <p>The tech used:</p>
-      <img src="https://cdn-icons-png.flaticon.com/512/174/174854.png" alt="" height="30px" width="30px">
-      <img src="https://cdn-icons-png.flaticon.com/512/732/732190.png" alt="" height="30px" width="30px">
-      <img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png" alt="" height="30px" width="30px">
-      <img src="https://as1.ftcdn.net/v2/jpg/03/04/97/12/1000_F_304971233_mQ4xlfnBGSszgzJPYzQnZtWI04ZNmuuP.jpg" alt="" width="30px" height="30px">
+<p>The tech used:</p>
+<img src="https://cdn-icons-png.flaticon.com/512/174/174854.png" alt="" height="30px" width="30px">
+<img src="https://cdn-icons-png.flaticon.com/512/732/732190.png" alt="" height="30px" width="30px">
+<img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png" alt="" height="30px" width="30px">
+<img src="https://as1.ftcdn.net/v2/jpg/03/04/97/12/1000_F_304971233_mQ4xlfnBGSszgzJPYzQnZtWI04ZNmuuP.jpg" alt="" width="30px" height="30px">
 
 
       <p>#2023 React-Firebase Project</p>
